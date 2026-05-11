@@ -37,15 +37,14 @@ export async function getTrendingTokens(limit = 20) {
 
 export async function getNewListings(limit = 30) {
   const data = await birdeyeGet("/defi/token_trending", {
-    sort_by: "rank", sort_type: "asc", offset: 0, limit,
+    sort_by: "rank",
+    sort_type: "asc",
+    offset: 0,
+    limit,
   });
   const tokens = data?.data?.tokens ?? [];
-  const sevenDaysAgo = Math.floor(Date.now() / 1000) - 7 * 24 * 3600;
-  const recent = tokens.filter((t: any) => {
-    const created = t.createdAt ?? t.firstTradeUnixTime ?? 0;
-    return created > sevenDaysAgo;
-  });
-  return recent.length > 0 ? recent : tokens;
+  console.log(`[Birdeye] ${tokens.length} tokens retornados`);
+  return tokens;
 }
 
 export async function getTokenSecurity(address: string) {

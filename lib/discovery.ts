@@ -103,7 +103,7 @@ export async function runDiscovery() {
   console.log("[Discovery] Iniciando...");
 
   const now = Math.floor(Date.now() / 1000);
-  const newTokens = await getNewListings(15);
+  const newTokens = await getNewListings(20);
 
   console.log(`[Discovery] ${newTokens.length} tokens para analisar`);
 
@@ -114,7 +114,8 @@ export async function runDiscovery() {
     const symbol = token.symbol ?? "???";
     console.log(`[Discovery] Analisando ${symbol}`);
 
-    const candles = await getOHLCV(address, now - 48 * 3600, now, "15m");
+    // 7 dias de janela para pegar o pico real do token
+    const candles = await getOHLCV(address, now - 7 * 24 * 3600, now, "1H");
     if (!candles.length) {
       console.log(`[Discovery] Sem candles para ${symbol}, pulando`);
       continue;
