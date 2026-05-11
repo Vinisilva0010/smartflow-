@@ -47,7 +47,7 @@ export default function WalletPage() {
     return (
       <div className="min-h-screen bg-black flex flex-col items-center justify-center text-[#00FF41] font-mono uppercase tracking-widest font-bold">
         <div className="w-8 h-8 bg-[#00FF41] animate-[ping_1s_steps(2,start)_infinite] mb-6" />
-        Decodificando alvo...
+        Decoding target...
       </div>
     );
   }
@@ -66,7 +66,7 @@ export default function WalletPage() {
       <div className="border-b-4 border-white bg-black px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center gap-4 text-sm font-mono uppercase tracking-widest font-bold overflow-x-auto whitespace-nowrap pb-2 md:pb-0">
           <Link href="/" className="text-white hover:bg-[#00FF41] hover:text-black px-3 py-1 transition-colors border-2 border-transparent hover:border-[#00FF41]">
-            [ Retornar ao Radar ]
+            [ Return to Radar ]
           </Link>
           <span className="text-[#00FF41] font-black">&gt;</span>
           <span className="bg-white text-black px-3 py-1 border-2 border-white">
@@ -87,7 +87,7 @@ export default function WalletPage() {
               <div className="flex justify-between items-start flex-wrap gap-8 mb-10">
                 <div>
                   <div className="text-[10px] font-mono uppercase tracking-[0.2em] font-bold text-[#00FF41] mb-2">
-                    // Identidade do Alvo
+                    // Target Identity
                   </div>
                   <div className="font-black text-4xl md:text-6xl text-white tracking-tighter break-all leading-none">
                     {shortenAddress(address)}
@@ -181,7 +181,7 @@ export default function WalletPage() {
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8 mt-4">
             <div>
               <h3 className="font-black text-4xl uppercase tracking-tighter leading-none">
-                Radar de Execução
+                Execution Radar
               </h3>
               <p className="font-mono font-bold text-[11px] uppercase tracking-[0.2em] text-black/60 mt-2">
                 [ Ping Birdeye API: 30s ]
@@ -193,14 +193,14 @@ export default function WalletPage() {
                 onClick={startMonitoring}
                 className="group relative bg-black text-[#00FF41] font-black uppercase text-xl px-8 py-4 border-none transition-transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0px_#00FF41]"
               >
-                [ Iniciar Varredura ]
+                [ Start Scan]
               </button>
             ) : (
               <button 
                 onClick={stopMonitoring}
                 className="group relative bg-red-600 text-white font-black uppercase text-xl px-8 py-4 border-none transition-transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0px_#000]"
               >
-                [ Abortar Radar ]
+                [ Abort Radar ]
               </button>
             )}
           </div>
@@ -208,7 +208,7 @@ export default function WalletPage() {
           {monitoring && (
             <div className="flex items-center gap-3 bg-black text-[#00FF41] font-mono font-bold uppercase text-xs tracking-widest p-3 mb-6 w-fit">
               <div className="w-4 h-4 bg-[#00FF41] animate-[ping_1.5s_steps(2,start)_infinite]" />
-              Conexão Estabelecida. Lendo Mempool...
+              Connection Established. Reading Mempool...
             </div>
           )}
 
@@ -241,7 +241,7 @@ export default function WalletPage() {
           {monitoring && liveAlerts.length === 0 && (
             <div className="bg-black/5 p-10 text-center border-4 border-dashed border-black/20 mt-4">
               <p className="font-mono font-bold text-black uppercase tracking-widest">
-                Aguardando assinatura de novos blocos...
+                Waiting for new block signatures...
               </p>
             </div>
           )}
@@ -251,7 +251,7 @@ export default function WalletPage() {
         {earlyBuys.length > 0 && (
           <div className="mt-20">
             <h3 className="font-black text-white text-3xl uppercase tracking-tighter mb-6 border-l-8 border-[#00FF41] pl-4">
-              Registro de Early Buys
+              Early Buys Log
             </h3>
             
             <div className="flex flex-col gap-2">
@@ -265,7 +265,7 @@ export default function WalletPage() {
                   </div>
                   
                   <div className="font-mono text-xs uppercase tracking-widest font-bold mt-4 md:mt-0 md:ml-auto md:mr-10">
-                    <span className="bg-black text-white px-2 py-1">{b.hours_before_peak.toFixed(1)}H</span> ANTES DO PICO
+                    <span className="bg-black text-white px-2 py-1">{b.hours_before_peak.toFixed(1)}H</span> BEFORE THE PEAK
                   </div>
                   
                   <div className={`font-mono font-black text-3xl mt-4 md:mt-0 ${b.return_pct >= 0 ? "text-green-600 group-hover:text-black" : "text-red-600 group-hover:text-red-900"}`}>
@@ -281,7 +281,7 @@ export default function WalletPage() {
         {activity.length > 0 && (
           <div className="mt-20 mb-10">
             <h3 className="font-black text-white text-3xl uppercase tracking-tighter mb-6 border-l-8 border-[#FFD700] pl-4">
-              Log de Operações
+              Operations Log
             </h3>
             
             <div className="border-t-4 border-white flex flex-col">

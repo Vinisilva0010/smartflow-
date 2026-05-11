@@ -29,9 +29,7 @@ export default function WalletCard({ wallet, rank }: { wallet: Wallet; rank: num
         style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%)' }}
       />
 
-      {/* O CARTÃO PRINCIPAL: BRANCO PURO (Choque absoluto contra o fundo preto da página)
-        Texto todo preto. Sem bordas. Forma cortada no canto inferior direito.
-      */}
+      
       <div 
         className="relative z-10 bg-white text-black transition-transform duration-100 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1"
         style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%)' }}
@@ -44,7 +42,7 @@ export default function WalletCard({ wallet, rank }: { wallet: Wallet; rank: num
         <div className="flex justify-between items-start p-5 bg-white pb-2">
           <div>
             <div className="text-[11px] font-mono uppercase tracking-[0.2em] font-bold text-black/60 mb-[-4px]">
-              Alvo Monitorado
+             Monitored Target
             </div>
             <div className="font-black text-4xl uppercase tracking-tighter hover:text-[#00FF41] hover:drop-shadow-[2px_2px_0px_#000] transition-all">
               {shortenAddress(wallet.address)}
