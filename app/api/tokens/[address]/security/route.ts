@@ -3,9 +3,10 @@ import { getTokenSecurity, calcSecurityScore } from "@/lib/birdeye";
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { address: string } }
+  { params }: { params: Promise<{ address: string }> }
 ) {
-  const security = await getTokenSecurity(params.address);
+  const { address } = await params;
+  const security = await getTokenSecurity(address);
   const score = calcSecurityScore(security);
   return NextResponse.json({ security, score });
 }

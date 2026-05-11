@@ -4,18 +4,16 @@ import { checkWalletNewTrades } from "@/lib/discovery";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { address: string } }
+  { params }: { params: Promise<{ address: string }> }
 ) {
-  const { address } = params;
+  const { address } = await params;
   const check = req.nextUrl.searchParams.get("check") === "true";
 
-  // Se check=true, verifica novos trades agora
   if (check) {
     const newAlerts = await checkWalletNewTrades(address);
     return NextResponse.json({ new_alerts: newAlerts });
   }
 
-  // Senão, retorna histórico
   const { data } = await supabaseAdmin
     .from("wallet_alerts")
     .select("*")
