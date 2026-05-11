@@ -34,8 +34,28 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-[#00FF41] selection:text-black font-sans">
+    <main className="min-h-screen text-white selection:bg-[#00FF41] selection:text-black font-sans relative z-0">
       
+
+    {/* --- EFEITO RADAR (BACKGROUND) --- */}
+      <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden bg-black flex items-center justify-center">
+        {/* 1. Grid Tático Escuro */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+        
+        {/* 2. Anéis de Radar em Verde Terminal */}
+        <div 
+          className="absolute w-[800px] md:w-[1200px] h-[800px] md:h-[1200px] rounded-full opacity-20"
+          style={{
+            background: 'radial-gradient(circle, transparent 15%, #00FF41 25%, transparent 40%, #00FF41 55%, transparent 70%, #00FF41 85%, transparent 100%)',
+            filter: 'blur(8px)'
+          }}
+        />
+
+        {/* 3. Núcleo Negro (O centro escuro da imagem) */}
+        <div className="absolute w-[150px] md:w-[250px] h-[150px] md:h-[250px] bg-black rounded-full" style={{ boxShadow: '0 0 80px 80px #000' }} />
+      </div>
+      {/* ---------------------------------- */}
+
       {/* Header Brutalista */}
       <div className="border-b-4 border-white bg-black">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
