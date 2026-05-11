@@ -94,7 +94,7 @@ export default function HomePage() {
               Target <br/> Rankings
             </h2>
             <p className="text-neutral-400 font-mono text-sm mt-4 leading-relaxed border-l-4 border-[#00FF41] pl-4">
-              Monitoramento passivo de endereços com alto win-rate. Score calculado com dados reais de liquidez e volume. Atualização de nós a cada 2h.
+              Passive monitoring of addresses with high win rates. Score calculated using real liquidity and volume data. Node updates every 2 hours.
             </p>
           </div>
           <button
@@ -120,7 +120,7 @@ export default function HomePage() {
         {/* Empty State */}
         {!loading && wallets.length === 0 && (
           <div className="text-center py-32 border-4 border-dashed border-neutral-700 bg-neutral-900/50">
-            <p className="font-mono text-neutral-400 uppercase tracking-widest mb-6">Database vazio. Nenhuma wallet indexada.</p>
+            <p className="font-mono text-neutral-400 uppercase tracking-widest mb-6">Empty database. No wallet indexed.</p>
             <button
               onClick={triggerDiscovery}
               disabled={running}
